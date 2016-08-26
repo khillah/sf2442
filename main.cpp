@@ -138,7 +138,7 @@ bool isBoostAvailable(const Game& game)
 double angleDifference(const Game& game)
 {
     Position vector = expectedVector(game.players[0].pos, game.checkpoints[game.players[0].nextCheckpointId]);
-    return abs(atan2(vector.y, vector.x) - game.players[0].angle);
+    return fabs(atan2(vector.y, vector.x) - game.players[0].angle);
 }
 
 bool angleIsProperForBoost(const Game& game)
