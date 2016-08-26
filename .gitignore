@@ -2,3 +2,5 @@ build
 debug
 release
 CMakeLists.txt.user
+source.cpp
+logs.txt

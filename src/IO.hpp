@@ -37,19 +37,27 @@ struct IO
             players.push_back(readPlayer());
         }
 
+        Player& p = players[0];
+
+        std::cerr << "POS: [" << p.pos.x << ", " << p.pos.y << "]"
+                  << " SPEED: [" << p.v.x << ", " << p.v.y << "]" << std::endl;
+
         return players;
     }
 
     void executeCommand(const Command& cmd)
     {
         std::cout << cmd.pos.x << " " << cmd.pos.y << " ";
-        if(cmd.useBoost)
+        std::cerr << "CMD: [" << cmd.pos.x << ", " << cmd.pos.y << ", ";
+        if(cmd.thrust.useBoost)
         {
             std::cout << "BOOST" << std::endl;
+            std::cerr << "BOOST]" << std::endl;
         }
         else
         {
-            std::cout << cmd.thrust << std::endl;
+            std::cout << cmd.thrust.value << std::endl;
+            std::cerr << cmd.thrust.value << "]" << std::endl;
         }
     }
 

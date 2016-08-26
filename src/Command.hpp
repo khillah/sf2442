@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Coordinates.hpp"
+#include "Thrust.hpp"
 #include <functional>
 
 struct Command
 {
     Coordinates pos;
-    bool useBoost;
-    int thrust;
+    Thrust thrust;
 };
