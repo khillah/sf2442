@@ -18,7 +18,7 @@ struct Checkpoint
         return !operator==(param);
     }
 
-    const Coordinates& getPos() const
+    const Coordinates& getCoordinates() const
     {
         return pos;
     }

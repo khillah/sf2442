@@ -5,9 +5,9 @@ struct Coordinates
     Coordinates()
     {}
 
-    Coordinates(const Coordinates& a, const Coordinates& b) :
-        x(b.x - a. x),
-        y(b.y - a.y)
+    Coordinates(int x, int y) :
+        x(x),
+        y(y)
     {}
 
     int x;
