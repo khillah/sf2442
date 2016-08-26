@@ -11,6 +11,7 @@ set(HEADERS
 	src/IO.hpp
 	src/Params.hpp
 	src/Logic.hpp
+	src/RaceProgress.hpp
 )	
 
 set(SOURCES

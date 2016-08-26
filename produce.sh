@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FILE_LIST="\
+	src/RaceProgress.hpp \
 	src/Coordinates.hpp \
 	src/Command.hpp \
 	src/Checkpoint.hpp \
