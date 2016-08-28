@@ -5,7 +5,8 @@ struct RaceProgress
     RaceProgress(unsigned int numOfLaps, unsigned int numOfPoints) :
         numOfPoints(numOfPoints),
         numOfLapsToGo(numOfLaps),
-        numOfPointsToGo(numOfPoints + 1)
+        numOfPointsToGo(numOfPoints + 1),
+        lastTarget(0xffffffff)
     {}
 
     virtual void update(unsigned int target)
