@@ -18,11 +18,10 @@ struct Logic
 
     Command turn(const Player& p)
     {
-        const Checkpoint& prev = params.checkpoints[(p.checkpoint + params.checkpoints.size() - 1) % params.checkpoints.size()];
+        progress.update(p.checkpoint);
         const Checkpoint& next = params.checkpoints[p.checkpoint];
         const Checkpoint& afterNext = params.checkpoints[(p.checkpoint + 1) % params.checkpoints.size()];
         Coordinates target = targetCalc.calculate(p.pos,
-                                                  prev.getCoordinates(),
                                                   next.getCoordinates(),
                                                   afterNext.getCoordinates());
         return {target, thrustCalc.calculate(p.pos, p.v, target)};

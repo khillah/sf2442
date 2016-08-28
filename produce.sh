@@ -13,6 +13,7 @@ FILE_LIST="\
 	src/Player.hpp \
 	src/Params.hpp \
 	src/Logic.hpp \
+	src/IoInterface.hpp \
 	src/IO.hpp \
 	src/Game.hpp \
 	src/main.cpp \
@@ -25,9 +26,11 @@ do
 	grep -v "#include" ${FILE} | grep -v "#pragma once" >> ${OUTPUT};
 done
 
-ERRORS=`g++ -Wall --pedantic -std=c++11 ${OUTPUT} -o /dev/null`
+ERRORS=`g++ -Wall --pedantic -std=c++14 ${OUTPUT} -o /dev/null 2>&1`
 
 if [ -z "${ERRORS}" ];
 then
 	leafpad ${OUTPUT} &
+else
+	g++ -Wall --pedantic -std=c++14 ${OUTPUT} -o /dev/null
 fi

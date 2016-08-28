@@ -2,13 +2,14 @@
 
 #include <iostream>
 #include <vector>
+#include "IoInterface.hpp"
 #include "Player.hpp"
 #include "Params.hpp"
 #include "Command.hpp"
 
-struct IO
+struct IoImpl : public IO
 {
-    Params readParams()
+    Params readParams() override
     {
         Params params;
 
@@ -18,17 +19,22 @@ struct IO
         std::cin >> params.numOfBoosts; std::cin.ignore();
 
         size_t checkpointCount; std::cin >> checkpointCount; std::cin.ignore();
+        std::cerr << params.numOfPlayers << " "
+                  << params.numOfLaps << " "
+                  << params.numOfBoosts << " "
+                  << params.checkpoints.size() << " " << std::endl;
         Coordinates pos;
         for (size_t i = 0; i < checkpointCount; i++)
         {
             std::cin >> pos.x >> pos.y; std::cin.ignore();
+            std::cerr << pos.x <<  " " << pos.y << std::endl;
             params.checkpoints.push_back(pos);
         }
 
         return params;
     }
 
-    std::vector<Player> readPlayers(size_t numOfPlayers)
+    std::vector<Player> readPlayers(size_t numOfPlayers) override
     {
         std::vector<Player> players;
 
@@ -45,7 +51,7 @@ struct IO
         return players;
     }
 
-    void executeCommand(const Command& cmd)
+    void executeCommand(const Command& cmd) override
     {
         std::cout << cmd.pos.x << " " << cmd.pos.y << " ";
         std::cerr << "CMD: [" << cmd.pos.x << ", " << cmd.pos.y << ", ";

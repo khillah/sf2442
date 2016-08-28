@@ -8,7 +8,7 @@ struct RaceProgress
         numOfPointsToGo(numOfPoints + 1)
     {}
 
-    void update(unsigned int target)
+    virtual void update(unsigned int target)
     {
         if(lastTarget != target)
         {
@@ -22,29 +22,29 @@ struct RaceProgress
         }
     }
 
-    unsigned int lapsToGo()
+    virtual unsigned int lapsToGo() const
     {
         return numOfLapsToGo;
     }
 
-    unsigned int totalNumOfPointsToGo()
+    virtual unsigned int totalNumOfPointsToGo() const
     {
         return (numOfLapsToGo - 1) * numOfPoints + numOfPointsToGo;
     }
 
-    unsigned int pointsToGoOnThisLap()
+    virtual unsigned int pointsToGoOnThisLap() const
     {
         return numOfPointsToGo;
     }
 
-    bool isLastLap()
+    virtual bool isLastLap() const
     {
         return numOfLapsToGo == 1;
     }
 
-    bool isLastPointInRace()
+    virtual bool isLastPointInRace() const
     {
-        return totalNumOfPointsToGo() == 1;
+        return totalNumOfPointsToGo() <= 1;
     }
 
 private:

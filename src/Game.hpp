@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 
-#include "IO.hpp"
+#include "IoInterface.hpp"
 #include "Params.hpp"
 #include "Logic.hpp"
 
