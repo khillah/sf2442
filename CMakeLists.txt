@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-SET(CMAKE_CXX_FLAGS "-std=gnu++14")
+SET(CMAKE_CXX_FLAGS "-Wall --pedantic -std=gnu++14")
 
 set(HEADERS
 	src/Thrust.hpp
