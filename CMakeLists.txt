@@ -35,7 +35,7 @@ find_package(Threads REQUIRED)
 include(ExternalProject)
 ExternalProject_Add(
     gtest
-    URL http://localhost/gtest.zip
+    URL ${CMAKE_CURRENT_SOURCE_DIR}/gtest.zip
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest
     # Disable install step
     INSTALL_COMMAND ""
