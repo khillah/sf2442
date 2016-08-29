@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Coordinates.hpp"
+#include "Vector.hpp"
+
 #include <cmath>
 #include <stdexcept>
 
@@ -38,34 +40,6 @@ struct TrinomialExpression
 
     Coordinates s1;
     Coordinates s2;
-};
-
-struct Vector
-{
-    Vector(const Coordinates& begin, const Coordinates& end) :
-        x(end.x - begin.x),
-        y(end.y - begin.y)
-    {}
-
-    Vector& normalize()
-    {
-        double len = std::sqrt(x * x + y * y);
-        x /= len;
-        y /= len;
-        return *this;
-    }
-
-    Coordinates translateGivenPointTimes(const Coordinates& point, int times)
-    {
-        return
-        {
-            static_cast<int>(point.x + times * x),
-            static_cast<int>(point.y + times * y)
-        };
-    }
-
-    double x;
-    double y;
 };
 
 struct LineCircleNearestIntersection

@@ -16,6 +16,7 @@ set(HEADERS
 	src/RaceProgress.hpp
 	src/TargetCalculator.hpp
 	src/ThrustCalculator.hpp
+	src/Vector.hpp
 )
 
 set(SOURCES

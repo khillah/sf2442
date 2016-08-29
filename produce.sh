@@ -6,6 +6,7 @@ FILE_LIST="\
 	src/Thrust.hpp \
 	src/RaceProgress.hpp \
 	src/Coordinates.hpp \
+	src/Vector.hpp \
 	src/TargetCalculator.hpp \
 	src/ThrustCalculator.hpp \
 	src/Command.hpp \
