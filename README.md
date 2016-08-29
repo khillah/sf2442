@@ -1,4 +1,12 @@
 # The Game
+It is the year 2442...
+...the world has been ravaged by a combination of climate change and natural disasters. In San Francisco, California, a number of surviving humans have formed clans inside heat-proof bunkers to protect themselves from the deadly rays of a now harmful sun.
+
+These survivors still need access to earth's most precious natural resource: water. Advances in robotics make it possible to send out a drone into the desert in search of water. However, due to a limited stock of ressource, only one drone will be selected to do this and it must be as efficient as possible. The best programmers in the clan have written AIs but which one will be able to safely navigate the desert in the shortest possible time ?
+
+A race is thus organized to determine which AI will be used for this most vital of missions.
+
+Write your code, and become the acclaimed savior of your clan.
 
 ## The Goal
 Win the race.
@@ -47,4 +55,26 @@ Win the race.
 
 ### Note
 The program must first read the initialization data from standard input. Then, within an infinite loop, read the contextual data from the standard input (player positions and state of the grid) and provide to the standard output the desired instructions.
+
+## Game Input
+
+### Initialization input
+* Line 1: playerCount: the number of drones in the race.
+* Line 2: laps: the number of laps to complete the race.
+* Line 3: boosts, the number of boosts you can use during the race.
+* Line 4: checkpointCount: the number of checkpoints in the circuit.
+* Next checkpointCount lines: 2 integerscheckpointX, checkpointY for the coordinates of the checkpoint.
+
+### Input for one game turn
+* Next playerCount lines: 5 integers representing one of the drones. The first drone of the list is always yours. x & y for the position. vx & vy for the speed vector. nextCheckPointId for the number of the next checkpoint the drone must go through.
+
+### Output for one game turn
+* A single line: 2 integers for the target coordinates of your drone followed by thrust, the acceleration to give your drone or the keyword BOOST.
+
+##Constraints
+* 0 <= thrust <= 100
+* 2 <= playerCount <= 3
+* 2 <= checkpointCount <= 8
+* 2 <= boosts <= 8
+* Response time per turn <= 100ms
 
