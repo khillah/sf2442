@@ -45,8 +45,8 @@ struct IoImpl : public IO
 
         Player& p = players[0];
 
-        std::cerr << "POS: [" << p.pos.x << ", " << p.pos.y << "]"
-                  << " SPEED: [" << p.v.x << ", " << p.v.y << "]" << std::endl;
+        std::cerr << p.pos.x << ", " << p.pos.y << " "
+                  << p.v.x << ", " << p.v.y << std::endl;
 
         return players;
     }
@@ -54,16 +54,15 @@ struct IoImpl : public IO
     void executeCommand(const Command& cmd) override
     {
         std::cout << cmd.pos.x << " " << cmd.pos.y << " ";
-        std::cerr << "CMD: [" << cmd.pos.x << ", " << cmd.pos.y << ", ";
+        std::cerr << "{{" << cmd.pos.x << ", " << cmd.pos.y << "}, {"
+                  << cmd.thrust.useBoost << ", " << cmd.thrust.value << "}}, " << std::endl;
         if(cmd.thrust.useBoost)
         {
             std::cout << "BOOST" << std::endl;
-            std::cerr << "BOOST]" << std::endl;
         }
         else
         {
             std::cout << cmd.thrust.value << std::endl;
-            std::cerr << cmd.thrust.value << "]" << std::endl;
         }
     }
 
