@@ -16,6 +16,7 @@ set(HEADERS
 	src/RaceProgress.hpp
 	src/TargetCalculator.hpp
 	src/ThrustCalculator.hpp
+	src/Simulation.hpp
 	src/Vector.hpp
 )
 
@@ -30,6 +31,7 @@ set(TESTS
 	tests/ModuleTests.cpp
 	tests/TargetCalculatorTestSuite.cpp
 	tests/ThrustCalculatorTestSuite.cpp
+	tests/SimulationTestSuite.cpp
 )
 
 find_package(Threads REQUIRED)

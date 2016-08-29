@@ -6,6 +6,7 @@
 #include "RaceProgress.hpp"
 #include "TargetCalculator.hpp"
 #include "ThrustCalculator.hpp"
+#include "Simulation.hpp"
 
 struct Logic
 {

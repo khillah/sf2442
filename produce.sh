@@ -10,6 +10,7 @@ FILE_LIST="\
 	src/TargetCalculator.hpp \
 	src/ThrustCalculator.hpp \
 	src/Command.hpp \
+	src/Simulation.hpp \
 	src/Checkpoint.hpp \
 	src/Player.hpp \
 	src/Params.hpp \
