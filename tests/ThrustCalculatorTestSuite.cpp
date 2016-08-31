@@ -9,11 +9,13 @@ using namespace ::testing;
 struct ThrustCalculatorTestSuite : public Test
 {
     ThrustCalculatorTestSuite() :
-        coords(0, 0),
+        position(0, 0),
+        target(100, 100),
         sut(progress, 2)
     {}
 
-    Coordinates coords;
+    Coordinates position;
+    Coordinates target;
     StrictMock<RaceProgressMock> progress;
     ThrustCalculator sut;
 };
@@ -28,12 +30,12 @@ TEST_F(ThrustCalculatorTestSuite, returnsFullThrust)
 {
     EXPECT_CALL(progress, isLastPointInRace())
             .WillOnce(Return(false));
-    ASSERT_NO_FATAL_FAILURE(matchThrust(Thrust{false, 100}, sut.calculate(coords, coords, coords)));
+    ASSERT_NO_FATAL_FAILURE(matchThrust(Thrust{false, 100}, sut.calculate(position, target, target)));
 }
 
 TEST_F(ThrustCalculatorTestSuite, returnsBoostOnALastCheckpoint)
 {
     EXPECT_CALL(progress, isLastPointInRace())
             .WillOnce(Return(true));
-    ASSERT_NO_FATAL_FAILURE(matchThrust(Thrust{true, 100}, sut.calculate(coords, coords, coords)));
+    ASSERT_NO_FATAL_FAILURE(matchThrust(Thrust{true, 100}, sut.calculate(position, target, target)));
 }

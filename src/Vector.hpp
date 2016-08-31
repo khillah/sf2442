@@ -47,6 +47,13 @@ struct Vector
         return *this;
     }
 
+    double angleBetweenVectorsNormalized(const Vector& v) const
+    {
+        double dot = x * v.x + y * v.y;     //dot product
+        double det = x * v.y - y * v.x;     // determinant
+        return std::fabs(atan2(det, dot));
+    }
+
     Coordinates translatePoint(const Coordinates& point) const
     {
         return

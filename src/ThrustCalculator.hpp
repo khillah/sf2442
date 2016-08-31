@@ -3,10 +3,11 @@
 #include "Thrust.hpp"
 #include "Coordinates.hpp"
 #include "RaceProgress.hpp"
+#include "Vector.hpp"
 #include <cmath>
 
 constexpr unsigned int BOOSTS_RESERVED_FOR_LAST_LAP_PERCENTAGE = 5u;
-
+constexpr double TEN_DEGREES_IN_RADIANS = 0.174532925;
 
 struct ThrustCalculator
 {
@@ -21,7 +22,12 @@ struct ThrustCalculator
                      const Coordinates& velocity,
                      const Coordinates& target)
     {
-        if(progress.isLastPointInRace())
+        Vector targetVec(position, target);
+        Vector shipVelocity(velocity.x, velocity.y);
+        targetVec.normalize();
+        shipVelocity.normalize();
+
+        if(progress.isLastPointInRace() && shipVelocity.angleBetweenVectorsNormalized(targetVec) < TEN_DEGREES_IN_RADIANS)
         {
             return {true, 100};
         }

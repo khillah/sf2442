@@ -100,7 +100,7 @@ TEST_F(ModuleTests, test3)
     EXPECT_CALL(ioMock, executeCommand(12451, 6996, false, 100));
     game->turn();
 
-    players[0] = {{12451, 6996}, {100, 100}, 2};
+    players[0] = {{12451, 6996}, {5781, 2953}, 2};
     EXPECT_CALL(ioMock, readPlayers(1))
             .WillOnce(Return(players));
     EXPECT_CALL(ioMock, executeCommand(5781, 2953, true, 100));
