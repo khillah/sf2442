@@ -28,11 +28,11 @@ do
 	grep -v "#include" ${FILE} | grep -v "#pragma once" >> ${OUTPUT};
 done
 
-ERRORS=`g++ -Wall --pedantic -std=c++14 ${OUTPUT} -o /dev/null 2>&1`
+ERRORS=`g++ -Wall --pedantic -std=c++11 ${OUTPUT} -o /dev/null 2>&1`
 
 if [ -z "${ERRORS}" ];
 then
 	leafpad ${OUTPUT} &
 else
-	g++ -Wall --pedantic -std=c++14 ${OUTPUT} -o /dev/null
+	g++ -Wall --pedantic -std=c++11 ${OUTPUT} -o /dev/null
 fi
